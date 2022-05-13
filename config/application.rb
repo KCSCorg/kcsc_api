@@ -20,7 +20,7 @@ module KCSCApi
       api_token: Rails.application.credentials.postmark_api_token
     }
 
-    config.action_mailer.default_url_options = { host: 'https://kcsc-api.herokuapp.com' }
+    config.action_mailer.default_url_options = { host: 'https://kcscapi.herokuapp.com' }
 
     config.load_defaults 6.1
     config.api_only = true
