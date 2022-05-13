@@ -14,15 +14,12 @@ Bundler.require(*Rails.groups)
 module KCSCApi
   class Application < Rails::Application
     config.exceptions_app = routes
-    config.action_mailer.delivery_method = 'smtp'
-    config.action_mailer.smtp_settings = {
-      port: 587,
-      user_name: 'apikey',
-      password: Rails.application.credentials.sendgrid_api_key,
-      address: 'smtp.sendgrid.net',
-      domain: 'heroku.com',
-      authentication: 'plain'
+
+    config.action_mailer.delivery_method = :postmark
+    config.action_mailer.postmark_settings = {
+      api_token: Rails.application.credentials.postmark_api_token
     }
+
     config.action_mailer.default_url_options = { host: 'https://kcsc-api.herokuapp.com' }
 
     config.load_defaults 6.1
