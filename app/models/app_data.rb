@@ -1,5 +1,6 @@
 class AppData
-  DATA_FILE = 'app_data.yml'
+  DATA_FILE = 'app_data.yml'.freeze
+
   def self.data
     if Rails.env.production?
       Psych.load(s3_settings.body.read).deep_symbolize_keys
@@ -9,16 +10,17 @@ class AppData
   end
 
   def self.s3
-    if Rails.env.production?
-      Aws::S3::Resource.new(region: 'eu-north-1',
-                            access_key_id: Rails.application.credentials.dig(:aws, :access_key_id),
-                            secret_access_key: Rails.application.credentials.dig(:aws,
-                                                                                 :secret_access_key))
-    end
+    return unless Rails.env.production?
+
+    Aws::S3::Resource.new(
+      region: 'eu-west-2',
+      access_key_id: Rails.application.credentials.dig(:aws, :access_key_id),
+      secret_access_key: Rails.application.credentials.dig(:aws, :secret_access_key)
+    )
   end
 
   def self.s3_settings
-    s3.client.get_object bucket: 'kcsc-production', key: DATA_FILE if Rails.env.production?
+    s3.client.get_object bucket: 'kcscapi-production', key: DATA_FILE if Rails.env.production?
   end
 
   def self.as_json
@@ -56,7 +58,7 @@ class AppData
     new_content = case content
                   when Array
                     existing_item = content.detect { |item| item[:id].to_i == update[:id].to_i }
-                    if existing_item && existing_item.any?
+                    if existing_item&.any?
                       index = content.find_index(existing_item)
                       content[index] = update
                       { section => content }
@@ -85,7 +87,7 @@ class AppData
   def self.write_to_app_data(new_data)
     yaml = { app_data: new_data }.to_yaml
     if Rails.env.production?
-      s3.client.put_object(bucket: 'kcsc-production', key: DATA_FILE, body: yaml)
+      s3.client.put_object(bucket: 'kcscapi-production', key: DATA_FILE, body: yaml)
     else
       File.open(Rails.root.join('lib', DATA_FILE), 'w') { |f| f.write yaml }
     end
