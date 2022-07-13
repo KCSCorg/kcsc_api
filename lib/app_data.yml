@@ -138,7 +138,10 @@
         :multiline: true
         :rows: 4
         :dataKey: message
-  :tagline: Our aim is to improve people's health and well-being
+  :tagline:
+    Community Health West London is a collaboration of local voluntary
+    and community organisations. We are working together with the wider
+    community to improve the health and well-being of our residents.
   :about:
     Community Health West London is a Community Interest Company. We
     are working together with the wider community to improve the health
