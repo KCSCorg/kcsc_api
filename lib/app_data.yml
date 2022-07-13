@@ -33,7 +33,7 @@
             link: '/services'
             ref: find-a-self-care-service
             visible: true
-          - label: Long term Self Care
+          - label: Over 65 self-care
             link: '/services'
             ref: long-term-self-care
             visible: true
@@ -41,11 +41,11 @@
             link: '/services'
             ref: mental-health
             visible: true
-          - label: n.kensington self-care
+          - label: North Ken. self-care
             link: '/services'
             ref: north-kensington-self-care
             visible: true
-          - label: find a link workers
+          - label: Link worker
             link: '/services'
             ref: find-a-link-workers
             visible: true
@@ -57,8 +57,8 @@
             link: '/about/organization'
             ref:
             visible: true
-          - label: self care
-            link: '/about/self_care'
+          - label: case studies
+            link: '/about/case_studies'
             ref:
             visible: true
       - label: news & info
@@ -83,7 +83,7 @@
         link: '/services'
         ref: find-a-self-care-service
       - parent: services
-        label: Long term Self Care
+        label: Over 65 Self-Care
         link: '/services'
         ref: long-term-self-care
       - parent: services
@@ -91,19 +91,19 @@
         link: '/services'
         ref: mental-health
       - parent: services
-        label: n.kensington self-care
+        label: north ken. self-care
         link: '/services'
         ref: north-kensington-self-care
       - parent: services
-        label: find a link workers
+        label: link worker
         link: '/services'
         ref: find-a-link-workers
       - parent: about
         label: organization
         link: '/about/organization'
       - parent: about
-        label: self care
-        link: '/about/self_care'
+        label: case studies
+        link: '/about/case_studies'
       - parent: news & info
         label: news
         link: '/news_info/news'
@@ -112,7 +112,7 @@
         link: '/news_info/information'
   :contact:
     :email: info@communityhealthwestlondon.org.uk
-    :phone: 0207-243 9806
+    :phone: 0207 243 9806
     :form:
       - :placeholder: Purpose of inquiry
         :options:
@@ -140,9 +140,9 @@
         :dataKey: message
   :tagline: Our aim is to improve people's health and well-being
   :about:
-    Community Health West London is a Community Interest Company made up of
-    six local charities. We are working together with the wider community to improve
-    the health and wellbeing of our residents.
+    Community Health West London is a Community Interest Company. We
+    are working together with the wider community to improve the health
+    and well-being of our residents.
   :disclaimers:
-    :copyright: 2021 All Rights Reserved by Community Health West London.
+    :copyright: 2022 All Rights Reserved by Community Health West London.
     :accessability: This site is built according to Web Content Accessibility Guidelines
