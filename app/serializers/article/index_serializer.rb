@@ -1,6 +1,7 @@
 class Article::IndexSerializer < ActiveModel::Serializer
   attributes :id, :title, :teaser, :date, :image, :published, :case_study
   belongs_to :author, serializer: Users::Serializer
+  type "articles"
 
   def teaser
     object.body.truncate(100)
